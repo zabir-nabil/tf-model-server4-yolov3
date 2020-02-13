@@ -66,7 +66,7 @@ nohup tensorflow_model_server \
 > Look into the * test_api.py * for both gRPC and REST
 
 
-#### Flask Server for native darknet YOLOv3
+### Flask Server for native darknet YOLOv3
 
 > A light flask server for darknet yolov3 is in darknet_server folder
 
@@ -74,4 +74,6 @@ nohup tensorflow_model_server \
 
 > Has both numpy image and base64 image support
 
-> It is slightly faster than tensorflow-model-server based on some benchmarks, but it has very limited functionalities.
+> It is slightly faster than tensorflow-model-server based on some benchmarks, but it has very limited functionalities
+
+> Not scalable yet
