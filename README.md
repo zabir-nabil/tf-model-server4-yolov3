@@ -1,14 +1,14 @@
 # tf-model-server4-yolov3
 Simple code base and instructions to convert yolov3 darknet weights to tensorflow .pb to serve @ tensorflow model server
 
-# Convert .weights to .ckpt
+### Convert .weights to .ckpt
 
 Use DW2TF repository
 
 https://github.com/jinyu121/DW2TF
 
 
-# Deploy to tf-model-server
+### Deploy to tf-model-server
 
 > Go to export.py
 
@@ -24,12 +24,12 @@ https://github.com/jinyu121/DW2TF
 
 > Copy the .pb / .pbtxt and the variables folder to serving path (~serving/versions/)
 
-#### Run gRPC server
+##### Run gRPC server
 
 `tensorflow_model_server --port=9000 --model_name=yolo --model_base_path=/absolute_path_to/yolo_v3/serving/versions/`
 
 
-#### Run REST Server
+##### Run REST Server
 
 > To serve with GPU
 ```
@@ -48,6 +48,8 @@ nohup tensorflow_model_server \
   --model_base_path=/absolute_path_to/yolo_v3/serving/versions/
   -t tensorflow/serving:latest >server.log 2>&1
 ```
+
+##### Docker/ GPU
 
 > Docker KILL
 
