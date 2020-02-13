@@ -60,3 +60,7 @@ nohup tensorflow_model_server \
 > Clear GPU memory
 
 `nvidia-smi | grep 'python' | awk '{ print $3 }' | xargs -n1 kill -9`
+
+##### Inference / API call
+
+> Look into the * test_api.py * for both gRPC and REST
