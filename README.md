@@ -21,3 +21,40 @@ https://github.com/jinyu121/DW2TF
 `python export.py`
 
 > The model will be found in exported_model folder
+
+> Copy the .pb / .pbtxt and the variables folder to serving path (~serving/versions/)
+
+#### Run gRPC server
+
+`tensorflow_model_server --port=9000 --model_name=yolo --model_base_path=/absolute_path_to/yolo_v3/serving/versions/`
+
+
+#### Run REST Server
+
+> To serve with GPU
+```
+nohup tensorflow_model_server \
+  --rest_api_port=8501 \
+  --model_name=yolo \
+  --model_base_path=/absolute_path_to/yolo_v3/serving/versions/
+  -t tensorflow/serving:gpu >server.log 2>&1
+```
+
+> To serve at CPU
+```
+nohup tensorflow_model_server \
+  --rest_api_port=8502 \
+  --model_name=yolo \
+  --model_base_path=/absolute_path_to/yolo_v3/serving/versions/
+  -t tensorflow/serving:latest >server.log 2>&1
+```
+
+> Docker KILL
+
+`docker container ls`
+
+`docker stop ID`
+
+> Clear GPU memory
+
+`nvidia-smi | grep 'python' | awk '{ print $3 }' | xargs -n1 kill -9`
