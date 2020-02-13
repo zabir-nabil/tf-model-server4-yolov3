@@ -16,7 +16,7 @@ export_path = 'exported_model'
 meta_path = os.path.join(ckpt_dir, ckpt_file) # Your .meta file
 
 
-graph_log = open('graph.log', 'a+')
+graph_log = open('graph.log', 'w')
 
 with tf.Session() as sess:
     
